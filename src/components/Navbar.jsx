@@ -19,7 +19,7 @@ import ThemeToggleButton from './theme-toggle-button';
 import { forwardRef } from 'react';
 function Navbar() {
   return (
-   <Box position='fixed'
+   <Box
    as='nav'
    w='100%'
    bg={useColorModeValue('#ffffffff','#00000080')}
@@ -44,7 +44,8 @@ function Navbar() {
         flexGrow={1}
         mt={{ base: 4, md: 0 }}
         >
-        <Link to={'/Blogs'}>Blogs</Link>
+        <Link to={'/blogs'}>Blogs</Link>
+        <Link to={'/'}>Home</Link>
         </Stack>
 
         {/* Adding Theme toggle button */}
@@ -59,7 +60,7 @@ function Navbar() {
                 aria-label="Options"
               />
               <MenuList>
-                <Link to={'/Blogs'}></Link>
+                <Link to={'/blogs'}>Blogs</Link>
               </MenuList>
               </Menu>
               </Box>
