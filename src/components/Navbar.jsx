@@ -15,7 +15,6 @@ import {
 } from '@chakra-ui/react'
 import { HamburgerIcon } from '@chakra-ui/icons';
 import {IoLogoGithub} from 'react-icons/io5';
-import ThemeToggleButton from './theme-toggle-button';
 import { forwardRef } from 'react';
 function Navbar() {
   return (
@@ -50,7 +49,6 @@ function Navbar() {
 
         {/* Adding Theme toggle button */}
         <Box flex={1} align='right'>
-            <ThemeToggleButton/>
             <Box ml={2} display={{ base: 'inline-block', md: 'none' }}>
             <Menu  id="navbar-menu">
               <MenuButton
