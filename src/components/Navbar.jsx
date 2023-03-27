@@ -4,36 +4,36 @@ import {
     Container,
     Box,
     Stack,
-    Heading,
+    Image,
     Flex,
     Menu,
     MenuItem,
     MenuList,
     MenuButton,
     IconButton,
-    useColorModeValue
 } from '@chakra-ui/react'
 import { HamburgerIcon } from '@chakra-ui/icons';
-import {IoLogoGithub} from 'react-icons/io5';
-import { forwardRef } from 'react';
+import heading from '../assets/logo.png'
+
 function Navbar() {
   return (
    <Box
    as='nav'
    w='100%'
-   bg={useColorModeValue('#ffffffff','#00000080')}
-   css={{backdropFilter:'blur(10px)'}}
+   bg='transparent'
+   css={{backdropFilter:'blur(2px)'}}
    zIndex={2}
+   position='fixed'
    >
     <Container display={'flex'} 
     p={2}
-    maxW="container.md"
+    maxW='container.xl'
     wrap="wrap"
-    align="center"
-    justify="space-between"
+    alignItems="center"
+    justifyContent='space-around'
     >
-        <Flex align={'center'} mr={5}>
-            <Heading as={'h1'} size='lg' letterSpacing={'tighter'}>Logo</Heading>
+        <Flex align={'center'} mr='16'>
+            <Link to={'/'}><Image src={heading} width={210} height={100} /></Link>
         </Flex>
         <Stack 
         direction={{ base: 'column', md: 'row' }}
@@ -42,15 +42,22 @@ function Navbar() {
         alignItems="center"
         flexGrow={1}
         mt={{ base: 4, md: 0 }}
+        p='2'
+        justifyContent={'space-around'}
         >
-        <Link to={'/blogs'}>Blogs</Link>
         <Link to={'/'}>Home</Link>
+        <Link>Events</Link>
+        <Link to={'/blogs'}>Blogs</Link>
+        <Link>Membership</Link>
+        <Link>About Us</Link>
+        <Link>Societies</Link>
+        <Link>Team</Link>
         </Stack>
 
-        {/* Adding Theme toggle button */}
+       
         <Box flex={1} align='right'>
-            <Box ml={2} display={{ base: 'inline-block', md: 'none' }}>
-            <Menu  id="navbar-menu">
+            <Box ml={2} display={{ base: 'block', md: 'none' }}>
+            <Menu>
               <MenuButton
                 as={IconButton}
                 icon={<HamburgerIcon />}
@@ -58,7 +65,30 @@ function Navbar() {
                 aria-label="Options"
               />
               <MenuList>
+                <MenuItem>
+                
+                <Link to={'/'}>Home</Link>
+                </MenuItem>
+                <MenuItem>
+                
+                <Link>Events</Link>
+                </MenuItem>
+                <MenuItem>
+                
                 <Link to={'/blogs'}>Blogs</Link>
+                </MenuItem>
+                <MenuItem>
+                
+                <Link>Membership</Link>
+                </MenuItem>
+                <MenuItem>
+                <Link>About Us</Link>
+                
+                </MenuItem>
+                <MenuItem>
+                
+                <Link>Team</Link>
+                </MenuItem>
               </MenuList>
               </Menu>
               </Box>

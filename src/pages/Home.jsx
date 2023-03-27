@@ -1,24 +1,81 @@
-import React from 'react'
-import { Box } from '@chakra-ui/react'
-import Model from '../components/Model'
-const Home=()=>{
-
+import React, { useEffect } from "react";
+import { Box, Image, Link, Button } from "@chakra-ui/react";
+import Model from "../components/Model";
+import logo from "../assets/ieee_white.png";
+import { motion } from "framer-motion";
+import { ArrowForwardIcon } from "@chakra-ui/icons";
+const Home = () => {
   return (
     <>
-    <Model/> <OverLay/>
+      <Model /> <OverLay />
     </>
-  )
-}
+  );
+};
+const textVariants = {
+  visible: {
+    transition: {
+      staggerChildren: 0.05,
+      repeat: Infinity,
+      repeatType: "mirror",
+    },
+  },
+};
+
+const letterVariants = {
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      ease: "easeInOut",
+    },
+  },
+  hidden: {
+    opacity: 0,
+  },
+};
 
 
-
-function OverLay(){
-  return(
-    
-    <Box position={'absolute'} top={'50%'} left={'50%'} transform={'translate(-50%,-50%,0)'}>
-      <h1 style={{ margin: 0, padding: 0, fontSize: '15em', fontWeight: 500, letterSpacing: '-0.05em' }}>IEEE</h1>
+function OverLay() {
+  const text = "Advancing Technology for Humanity";
+  return (
+    <Box
+      position={"absolute"}
+      top={"50%"}
+      left={"50%"}
+      transform={"translate3d(-50%,-50%,0)"}
+      display="flex"
+      alignItems={"center"}
+      flexDirection="column"
+      justifyContent={"center"}
+    >
+      <Link href="https://www.ieee.org/">
+        <Image src={logo} width={"500px"} />
+      </Link>
+      <motion.span
+        style={{ fontSize: "1.3rem" }}
+        variants={textVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        {text.split("").map((letter, index) => (
+          <motion.span key={index} variants={letterVariants}>
+            {letter}
+          </motion.span>
+        ))}
+      </motion.span>
+      
+        <Button
+          bg={"transparent"}
+          transition={{ duration: 0.5 }}
+          rightIcon={<ArrowForwardIcon />}
+          mt={'12'}
+          variant='outline'
+          borderRadius={'3xl'}
+        >
+          SMVIT Student Branch
+        </Button>
+      
     </Box>
- 
-  )
+  );
 }
-export default Home
+export default Home;
