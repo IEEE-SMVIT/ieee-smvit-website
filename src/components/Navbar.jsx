@@ -46,11 +46,11 @@ function Navbar() {
         justifyContent={'space-around'}
         >
         <Link to={'/'}>Home</Link>
+        <Link>About Us</Link>
         <Link>Events</Link>
+        <Link>Societies</Link>
         <Link to={'/blogs'}>Blogs</Link>
         <Link>Membership</Link>
-        <Link>About Us</Link>
-        <Link>Societies</Link>
         <Link>Team</Link>
         </Stack>
 

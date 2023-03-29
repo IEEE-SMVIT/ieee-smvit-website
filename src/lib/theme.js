@@ -15,7 +15,7 @@ const theme =extendTheme({
         baseStyle: {
           list: {
             bg: "black",
-            boxShadow: '0px 0px 10px 2px rgba(106,27,154,0.66);',
+            boxShadow: '0px 0px 10px 2px rgba(225,225,225,0.3);',
           },
           item: {
             bg: "black",
